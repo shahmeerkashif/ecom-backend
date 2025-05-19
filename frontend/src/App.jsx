@@ -7,7 +7,7 @@ function App() {
   const [form, setForm] = useState({ name: '', price: '', description: '', image: '' });
   const [editId, setEditId] = useState(null);
 
-  const api = "http://localhost:5009/api";
+  const api = "https://ecom-backend-three-omega.vercel.app/api";
 
   const fetchProducts = async () => {
     const res = await axios.get(`${api}/getProducts`);
