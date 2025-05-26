@@ -12,7 +12,6 @@ server.get("/", (req, res) => {
     res.send("server!");
 });
 
-// 🟢 GET all products
 server.get("/api/getProducts", async (req, res) => {
     try {
         const result = await db.query("SELECT * FROM products ORDER BY id DESC");
@@ -22,7 +21,6 @@ server.get("/api/getProducts", async (req, res) => {
     }
 });
 
-// 🟢 POST add a product
 server.post("/api/addProduct", async (req, res) => {
     const { name, price, description, image } = req.body;
     if (!name || !price || !description) {
@@ -40,7 +38,6 @@ server.post("/api/addProduct", async (req, res) => {
     }
 });
 
-// 🔴 DELETE a product
 server.delete("/api/deleteProduct/:id", async (req, res) => {
     const id = parseInt(req.params.id);
     try {
@@ -51,7 +48,6 @@ server.delete("/api/deleteProduct/:id", async (req, res) => {
     }
 });
 
-// 🟡 UPDATE a product
 server.put("/api/updateProduct/:id", async (req, res) => {
     const id = parseInt(req.params.id);
     const { name, price, description, image } = req.body;
